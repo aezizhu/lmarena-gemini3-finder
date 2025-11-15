@@ -376,9 +376,26 @@ class LMArenaFinder:
         
         prose_elements = self.driver.find_elements(By.CSS_SELECTOR, '.prose')
         
+        found_match = False
+        
         # Typically arena shows 2 models side-by-side
         for i, element in enumerate(prose_elements):
-            text = element.text
+            # Critical fix: Use textContent instead of .text for reliability
+            # .text is unreliable with dynamic content and code blocks
+            text = element.get_attribute('textContent')
+            
+            if text is None:  # Fallback to innerText
+                text = element.get_attribute('innerText')
+            
+            if text is None:  # Last resort: use .text
+                text = element.text
+            
+            if text is None:  # Nothing worked
+                text = ""
+            
+            # DEBUG: Print what we actually captured
+            print(f"\n--- DEBUG: TEXT FROM MODEL #{i+1} ---\n{text}\n--- END DEBUG ---\n")
+            
             if re.search(pattern, text, re.DOTALL):
                 # Determine which model (A or B)
                 model_label = "Model A" if i == 0 else f"Model B" if i == 1 else f"Response #{i+1}"
@@ -394,9 +411,11 @@ class LMArenaFinder:
                 print(f"{'='*70}")
                 print(f"\n👉 The model you're looking for is: {model_label}")
                 print(f"{'='*70}\n")
-                return True
+                
+                found_match = True
+                # Don't return immediately - check both models
         
-        return False
+        return found_match
     
     def find_model(self):
         """Main loop to find matching model"""
