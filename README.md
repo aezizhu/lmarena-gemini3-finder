@@ -12,14 +12,18 @@ This tool automates the process of finding specific AI models (particularly Gemi
 
 ## ✨ Features
 
-- **Web Automation**: Uses Selenium with real Chrome browser for reliable automation
-- **Pattern Matching**: Regex-based response analysis to identify target models
+- **Web Automation**: Uses undetected-chromedriver with real Chrome for reliable automation
+- **Cloudflare Bypass**: Automatically bypasses bot detection and verification
+- **Persistent Sessions**: Saves Chrome profile - faster on subsequent runs
+- **Smart Pattern Matching**: Flexible regex that catches all Gemini 3.0 code variations
+- **Error Detection**: Automatically detects and retries generation errors
+- **Model Identification**: Clearly shows which model (A or B) is Gemini 3.0
+- **Interactive Mode**: Browser stays open after finding model for testing
 - **Auto-retry**: Continues testing until the target model is found
 - **Proxy Support**: Compatible with SOCKS5 proxies for network routing
 - **Configurable**: JSON-based configuration for prompts and patterns
-- **Headless Mode**: Can run without visible browser window
-- **Status Updates**: Real-time progress reporting
-- **Cloudflare Bypass**: Works with real Chrome to avoid bot detection
+- **Timestamped Logs**: All status messages include timestamps for debugging
+- **Robust Text Extraction**: Uses textContent for reliable code capture
 
 ## 📋 Requirements
 
