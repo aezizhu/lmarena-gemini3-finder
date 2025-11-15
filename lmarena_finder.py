@@ -44,8 +44,10 @@ class LMArenaFinder:
         }
     
     def status(self, message: str):
-        """Print status message"""
-        print(f"[STATUS] {message}")
+        """Print status message with timestamp"""
+        from datetime import datetime
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        print(f"[{timestamp}] {message}")
     
     def setup_browser(self):
         """Initialize undetected Chrome browser with persistent profile"""
