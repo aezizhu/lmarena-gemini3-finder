@@ -441,8 +441,18 @@ class LMArenaFinder:
                         raise
                 
                 if self.check_responses(self.config["search_pattern"]):
-                    self.status("Success! Matching model found.")
-                    return True
+                    self.status("✅ Success! Matching model found!")
+                    self.status("   The browser will now stay open for you to chat.")
+                    self.status("👉 When you are finished, press CTRL+C in this terminal.")
+                    
+                    try:
+                        # Keep browser open - pause here until user is done
+                        while True:
+                            time.sleep(1)
+                    except KeyboardInterrupt:
+                        # User pressed Ctrl+C when done chatting
+                        self.status("\nChat session finished by user. Closing browser.")
+                        return True
                 
                 if not self.config.get("retry_on_no_match", True):
                     self.status("No match found. Retry disabled.")
