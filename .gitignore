@@ -44,3 +44,7 @@ playwright/.cache/
 
 # Local config overrides
 config.local.json
+
+# Markdown files (except README)
+*.md
+!README.md
