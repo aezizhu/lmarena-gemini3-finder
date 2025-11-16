@@ -4,6 +4,17 @@ Automated Python tool to identify the rumored **Gemini 3.0** model on [lmarena.a
 
 > **Acknowledgment:** This project is inspired by and based on the fingerprinting technique shared by [Jacen He](https://mp.weixin.qq.com/s?mid=2650934479&sn=fbba9e154fed1d2c128814d2ad546fb4&idx=1&__biz=MzA3Njc1MDU0OQ%3D%3D) from the aardio community. This Python implementation adapts their original approach using Selenium and Chrome automation.
 
+## ⚠️ Important Disclaimer
+
+**Target Model Clarification:** This tool is designed to identify the anonymous model codenamed **"riftrunner"** on LMArena's blind testing platform. This model has been widely discussed and speculated to be an unreleased Gemini 3.0 variant within the AI community. 
+
+**This tool does NOT target:**
+- Any officially released Google Gemini models (Gemini 1.0, Gemini 1.5, Gemini 2.0, etc.)
+- Any publicly announced or documented Gemini 3.x series models
+- Any production Google AI models
+
+**Please note:** The connection between "riftrunner" and any specific Google model is based on community speculation and behavioral fingerprinting patterns. This tool is for research and educational purposes only. Users should make their own informed decisions about model identity based on response characteristics.
+
 ## 🎯 Purpose
 
 This tool automates the process of finding specific AI models (particularly Gemini 3.0) on LMArena's blind testing platform by:
